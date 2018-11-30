@@ -18,20 +18,31 @@ filetype off                  " required
 
 " This is a Scaladoc comment using the recommended indentation.
  let g:scala_scaladoc_indent = 1
-
-Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 let g:deoplete#enable_at_startup = 1
 " " plugin from http://vim-scripts.org/vim/scripts.html
  " Plugin 'L9'
-" " Git plugin not hosted on GitHub
- Plugin 'git://git.wincent.com/command-t.git'
 " " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " " The sparkup vim script is in a subdirectory of this repo called vim.
 " " Pass the path to set the runtimepath properly.
  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" " python plugins
+ Plugin 'vim-scripts/indentpython.vim'
+ Bundle 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+""Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+let python_highlight_all=1
+syntax on
+Plugin 'jnurmine/Zenburn'
+set t_Co=256
+set background=dark
+
+set nu
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -39,9 +50,6 @@ let g:deoplete#enable_at_startup = 1
 " " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
-set expandtab
-set shiftwidth=2
-set softtabstop=2
 " " To ignore plugin indent changes, instead use:
 " "filetype plugin on
 " "
@@ -55,3 +63,12 @@ set softtabstop=2
 " "
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
+"
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
+colors zenburn
