@@ -13,9 +13,7 @@ set tabstop=4           " use 4 spaces to represent tab
 set softtabstop=4
 set shiftwidth=4        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting a new line
-
-" make backspaces more powerfull
-set backspace=indent,eol,start
+set spell
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -33,12 +31,15 @@ filetype off                  " required
 " " plugin on GitHub repo
  Plugin 'tpope/vim-fugitive'
  Plugin 'derekwyatt/vim-scala'
+ Plugin 'mikelue/vim-maven-plugin'
+ Plugin 'tpope/vim-projectionist'
+ Plugin 'tpope/vim-dispatch'
 
 " This is a Scaladoc comment using the recommended indentation.
  let g:scala_scaladoc_indent = 1
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1"
 " " plugin from http://vim-scripts.org/vim/scripts.html
  " Plugin 'L9'
 " " git repos on your local machine (i.e. when working on your own plugin)
@@ -46,7 +47,9 @@ let g:deoplete#enable_at_startup = 1
 " " The sparkup vim script is in a subdirectory of this repo called vim.
 " " Pass the path to set the runtimepath properly.
  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
+ Plugin 'janko-m/vim-test'
+ let test#strategy = "dispatch"
+ let test#runner = "maventest"
 " " python plugins
  Plugin 'vim-scripts/indentpython.vim'
  Bundle 'Valloric/YouCompleteMe'
@@ -90,3 +93,5 @@ au BufNewFile,BufRead *.js, *.html, *.css
 
 
 colors zenburn
+" make backspaces more powerfull
+set backspace=indent,eol,start
