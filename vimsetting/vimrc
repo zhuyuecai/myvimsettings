@@ -34,7 +34,13 @@ filetype off                  " required
  Plugin 'mikelue/vim-maven-plugin'
  Plugin 'tpope/vim-projectionist'
  Plugin 'tpope/vim-dispatch'
-
+ " code formatter"
+ Plugin 'Chiel92/vim-autoformat'
+ " python formatting"
+ let g:formatter_yapf_style = 'pep8'
+ " scalafmt settings
+let g:formatdef_scalafmt = '"scalafmt --stdin"'
+let g:formatters_scala = ['scalafmt']
 " This is a Scaladoc comment using the recommended indentation.
  let g:scala_scaladoc_indent = 1
 Plugin 'roxma/nvim-yarp'
@@ -55,7 +61,8 @@ Plugin 'roxma/vim-hug-neovim-rpc'
  Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-""Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
+let g:syntastic_python_checkers = ['pyflakes','python']
 Plugin 'nvie/vim-flake8'
 let python_highlight_all=1
 syntax on
